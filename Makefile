@@ -1,7 +1,7 @@
 .PHONY: fmt test build package tag run push clean
 
 BIN_NAME=node-crypto-forex-rates
-IMAGE_NAME=node-crypto-forex-rates
+IMAGE_NAME=proxeus/node-crypto-forex-rates
 
 default: fmt test build package tag run
 
