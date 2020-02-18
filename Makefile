@@ -13,7 +13,7 @@ test: fmt
 	go test ./...
 
 build: test
-	GOOS=linux GOARCH=arm CGO_ENABLED=0 go build -o artifacts/${BIN_NAME} .
+	GOOS=linux CGO_ENABLED=0 go build -o artifacts/${BIN_NAME} .
 	chmod +x artifacts/${BIN_NAME}
 
 package: build
@@ -23,7 +23,7 @@ tag: package
 	docker tag $(IMAGE_NAME):local $(IMAGE_NAME):latest
 
 run: tag
-	docker run --name ${BIN_NAME} --rm $(IMAGE_NAME):latest
+	docker run --network="host" --name ${BIN_NAME} --rm $(IMAGE_NAME):latest
 
 push: tag
 	docker push $(IMAGE_NAME):latest

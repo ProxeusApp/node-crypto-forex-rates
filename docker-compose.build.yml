@@ -1,0 +1,23 @@
+---
+version: '3.7'
+
+networks:
+  xes-platform-network:
+    name: xes-platform-network
+
+services:
+  node-crypto-forex-rates:
+    build:
+      .
+    container_name: xes_node-crypto-forex-rates
+    networks:
+      - xes-platform-network
+    restart: unless-stopped
+    environment:
+      PROXEUS_INSTANCE_URL: http://172.17.0.1:1323
+      SERVICE_SECRET: secret
+      SERVICE_PORT: 8011
+      SERVICE_URL: localhost
+      TZ: Europe/Zurich
+    ports:
+      - "8011:8011"

@@ -1,6 +1,8 @@
+github.com/ProxeusApp/proxeus-core v0.0.0-20200217170350-b6119da80f6b h1:5AHH0etq8Onyh2yKvR/g3RcpgfhTVQbLRurUFqwbleU=
 github.com/ProxeusApp/proxeus-core/externalnode v0.0.0-20200213110705-c917ef26f755 h1:TkabFP7fac1xQJN6iWZo8nrZs3whrl9v23M7XRYQxyQ=
 github.com/ProxeusApp/proxeus-core/externalnode v0.0.0-20200213110705-c917ef26f755/go.mod h1:+zG6MGowS3xtvHabKtWyti/uBb668PcjI34LqFqZWm4=
-github.com/davecgh/go-spew v1.1.0 h1:ZDRjVQ15GmhC3fiQ8ni8+OwkZQO4DARzQgrnXU1Liz8=
+github.com/ProxeusApp/proxeus-core/externalnode v0.0.0-20200217170350-b6119da80f6b h1:uclsNjzELIflGCqiDE7awQZxSjaHGjmY11Kex3w2egk=
+github.com/ProxeusApp/proxeus-core/externalnode v0.0.0-20200217170350-b6119da80f6b/go.mod h1:+zG6MGowS3xtvHabKtWyti/uBb668PcjI34LqFqZWm4=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible/go.mod h1:E3ru+11k8xSBh+hMPgOLZmtrrCbhqsmaPHjLKYnJCaQ=
