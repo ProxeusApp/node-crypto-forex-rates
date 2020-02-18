@@ -16,7 +16,7 @@ services:
       PROXEUS_INSTANCE_URL: http://xes-platform:1323
       SERVICE_SECRET: secret
       SERVICE_PORT: 8011
-      SERVICE_URL: http://node-crypto-forex-rates:8011/
+      SERVICE_URL: node-crypto-forex-rates
       TZ: Europe/Zurich
     ports:
       - "8011:8011"

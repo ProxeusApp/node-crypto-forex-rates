@@ -110,7 +110,7 @@ func main() {
 
 	//Common External Node registration
 	externalnode.Register(proxeusUrl, serviceName, serviceUrl+":"+servicePort, jwtsecret, "Converts Crypto to Firat currencies")
-	err := e.Start("localhost:" + servicePort)
+	err := e.Start("0.0.0.0:" + servicePort)
 	if err != nil {
 		log.Printf("[%s][run] err: %s", serviceName, err.Error())
 	}
