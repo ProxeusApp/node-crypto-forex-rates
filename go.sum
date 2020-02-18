@@ -1,8 +1,11 @@
 github.com/ProxeusApp/proxeus-core v0.0.0-20200217170350-b6119da80f6b h1:5AHH0etq8Onyh2yKvR/g3RcpgfhTVQbLRurUFqwbleU=
+github.com/ProxeusApp/proxeus-core v0.0.0-20200218131402-646bf4b611a1 h1:9LMfz/SZbZjTmKB043xyn5r+2IkaO9Xq4NPeAA5xZG8=
 github.com/ProxeusApp/proxeus-core/externalnode v0.0.0-20200213110705-c917ef26f755 h1:TkabFP7fac1xQJN6iWZo8nrZs3whrl9v23M7XRYQxyQ=
 github.com/ProxeusApp/proxeus-core/externalnode v0.0.0-20200213110705-c917ef26f755/go.mod h1:+zG6MGowS3xtvHabKtWyti/uBb668PcjI34LqFqZWm4=
 github.com/ProxeusApp/proxeus-core/externalnode v0.0.0-20200217170350-b6119da80f6b h1:uclsNjzELIflGCqiDE7awQZxSjaHGjmY11Kex3w2egk=
 github.com/ProxeusApp/proxeus-core/externalnode v0.0.0-20200217170350-b6119da80f6b/go.mod h1:+zG6MGowS3xtvHabKtWyti/uBb668PcjI34LqFqZWm4=
+github.com/ProxeusApp/proxeus-core/externalnode v0.0.0-20200218131402-646bf4b611a1 h1:/k4FJQ89KphOmLtacNWEJ6fZia74DYRCuGg+H6GzXP8=
+github.com/ProxeusApp/proxeus-core/externalnode v0.0.0-20200218131402-646bf4b611a1/go.mod h1:+zG6MGowS3xtvHabKtWyti/uBb668PcjI34LqFqZWm4=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible h1:7qlOGliEKZXTDg6OTjfoBKDXWrumCAMpl/TFQ4/5kLM=
 github.com/dgrijalva/jwt-go v3.2.0+incompatible/go.mod h1:E3ru+11k8xSBh+hMPgOLZmtrrCbhqsmaPHjLKYnJCaQ=
@@ -28,6 +31,8 @@ github.com/valyala/fasttemplate v1.1.0/go.mod h1:UQGH1tvbgY+Nz5t2n7tXsz52dQxojPU
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/crypto v0.0.0-20200210222208-86ce3cb69678 h1:wCWoJcFExDgyYx2m2hpHgwz8W3+FPdfldvIgzqDIhyg=
 golang.org/x/crypto v0.0.0-20200210222208-86ce3cb69678/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
+golang.org/x/crypto v0.0.0-20200214034016-1d94cc7ab1c6 h1:Sy5bstxEqwwbYs6n0/pBuxKENqOeZUgD45Gp3Q3pqLg=
+golang.org/x/crypto v0.0.0-20200214034016-1d94cc7ab1c6/go.mod h1:LzIPMQfyMNhhGPhUkYOs5KpL4U8rLKemX1yGLhDgUto=
 golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3 h1:0GoQqolDA55aaLxZyTzK/Y2ePZzZTUrRacwib7cNsYQ=
 golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3/go.mod h1:t9HGtf8HONx5eT2rtn7q6eTqICYqUVnKs3thJo3Qplg=
 golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
