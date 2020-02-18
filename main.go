@@ -20,9 +20,11 @@ import (
 	"github.com/labstack/echo/middleware"
 )
 
-const serviceName = "node-crypto-forex-rates"
-const jwtSecret = "my secret"
-const defaultServiceUrl = "127.0.0.1:8011"
+const serviceID = "node-crypto-forex-rates"
+const defaultServiceName = "Crypto to Fiat Forex Rates"
+const defaultJWTSecret = "my secret"
+const defaultServiceUrl = "127.0.0.1"
+const defaultServicePort = "8011"
 const defaultAuthkey = "auth"
 const defaultProxeusUrl = "http://127.0.0.1:1323"
 
@@ -40,7 +42,8 @@ var configPage *template.Template
 type configuration struct {
 	proxeusUrl string
 	serviceUrl string
-	authKey    string
+	jwtsecret  string
+	authtoken  string
 }
 
 var Config configuration
@@ -54,11 +57,19 @@ func main() {
 	if len(serviceUrl) == 0 {
 		serviceUrl = defaultServiceUrl
 	}
-	authKey := os.Getenv("AUTH_KEY")
-	if len(authKey) == 0 {
-		authKey = defaultAuthkey
+	servicePort := os.Getenv("SERVICE_PORT")
+	if len(servicePort) == 0 {
+		servicePort = defaultServicePort
 	}
-	Config = configuration{proxeusUrl: proxeusUrl, serviceUrl: serviceUrl, authKey: authKey}
+	jwtsecret := os.Getenv("SERVICE_SECRET")
+	if len(jwtsecret) == 0 {
+		jwtsecret = defaultJWTSecret
+	}
+	serviceName := os.Getenv("SERVICE_NAME")
+	if len(serviceName) == 0 {
+		serviceName = defaultServiceName
+	}
+	Config = configuration{proxeusUrl: proxeusUrl, serviceUrl: serviceUrl, jwtsecret: jwtsecret, authtoken: defaultAuthkey}
 	fmt.Println()
 	fmt.Println("#######################################################")
 	fmt.Println("# STARTING NODE - " + serviceName)
@@ -83,8 +94,8 @@ func main() {
 	{
 		g := e.Group("/node/:id")
 		conf := middleware.DefaultJWTConfig
-		conf.SigningKey = []byte(jwtSecret)
-		conf.TokenLookup = "query:" + authKey
+		conf.SigningKey = []byte(jwtsecret)
+		conf.TokenLookup = "query:" + defaultAuthkey
 		g.Use(middleware.JWTWithConfig(conf))
 
 		g.GET("/config", config)
@@ -98,8 +109,8 @@ func main() {
 	parseTemplates()
 
 	//Common External Node registration
-	externalnode.Register(proxeusUrl, serviceName, serviceUrl, jwtSecret, "Converts Crypto to Firat currencies")
-	err := e.Start(serviceUrl)
+	externalnode.Register(proxeusUrl, serviceName, serviceUrl+":"+servicePort, jwtsecret, "Converts Crypto to Firat currencies")
+	err := e.Start("localhost:" + servicePort)
 	if err != nil {
 		log.Printf("[%s][run] err: %s", serviceName, err.Error())
 	}
@@ -148,7 +159,7 @@ func config(c echo.Context) error {
 	var buf bytes.Buffer
 	err = configPage.Execute(&buf, map[string]string{
 		"Id":           id,
-		"AuthToken":    c.QueryParam(Config.authKey),
+		"AuthToken":    c.QueryParam(Config.authtoken),
 		"FiatCurrency": conf.FiatCurrency,
 	})
 	if err != nil {

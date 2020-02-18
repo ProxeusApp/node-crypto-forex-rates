@@ -7,3 +7,5 @@ require (
 	github.com/labstack/echo v3.3.10+incompatible
 	github.com/valyala/fasttemplate v1.1.0 // indirect
 )
+
+replace github.com/ProxeusApp/proxeus-core/externalnode => ../proxeus-core/externalnode
