@@ -82,6 +82,10 @@ func main() {
 		"ETH",
 		"XES",
 		"MKR",
+		"BAT",
+		"USDC",
+		"REP",
+		"OMG",
 	}
 
 	cryptoPriceService = service.NewCryptoComparePriceService("API_KEY",
@@ -136,7 +140,7 @@ func next(c echo.Context) error {
 			log.Printf("asset %s not found. skipping, won't get price. err: %s", asset, errAssetNotFoundInRequest.Error())
 			continue
 		}
-		ratio, err := cryptoPriceService.GetPriceInFor(asset, fiatCurrency)
+		ratio, err := cryptoPriceService.GetPriceInFor(fiatCurrency, asset)
 		if err != nil {
 			return err
 		}
