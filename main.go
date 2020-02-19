@@ -53,13 +53,13 @@ func main() {
 	if len(proxeusUrl) == 0 {
 		proxeusUrl = defaultProxeusUrl
 	}
-	serviceUrl := os.Getenv("SERVICE_URL")
-	if len(serviceUrl) == 0 {
-		serviceUrl = defaultServiceUrl
-	}
 	servicePort := os.Getenv("SERVICE_PORT")
 	if len(servicePort) == 0 {
 		servicePort = defaultServicePort
+	}
+	serviceUrl := os.Getenv("SERVICE_URL")
+	if len(serviceUrl) == 0 {
+		serviceUrl = "http://localhost:" + servicePort
 	}
 	jwtsecret := os.Getenv("SERVICE_SECRET")
 	if len(jwtsecret) == 0 {
@@ -113,7 +113,7 @@ func main() {
 	parseTemplates()
 
 	//Common External Node registration
-	externalnode.Register(proxeusUrl, serviceName, serviceUrl+":"+servicePort, jwtsecret, "Converts Crypto to Firat currencies")
+	externalnode.Register(proxeusUrl, serviceName, serviceUrl, jwtsecret, "Converts Crypto to Firat currencies")
 	err := e.Start("0.0.0.0:" + servicePort)
 	if err != nil {
 		log.Printf("[%s][run] err: %s", serviceName, err.Error())
