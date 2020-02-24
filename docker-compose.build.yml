@@ -17,6 +17,7 @@ services:
       PROXEUS_INSTANCE_URL: http://172.17.0.1:1323
       SERVICE_SECRET: secret
       SERVICE_PORT: 8011
+      REGISTER_RETRY_INTERVAL: 3
       SERVICE_URL: http://localhost:8011
       TZ: Europe/Zurich
     ports:
