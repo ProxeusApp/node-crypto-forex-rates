@@ -11,6 +11,7 @@ import (
 	"math/big"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 
 	"github.com/ProxeusApp/node-crypto-forex-rates/service"
@@ -27,6 +28,7 @@ const defaultServiceUrl = "127.0.0.1"
 const defaultServicePort = "8011"
 const defaultAuthkey = "auth"
 const defaultProxeusUrl = "http://127.0.0.1:1323"
+const defaultRegisterRetryInterval = 5
 
 var (
 	tokens             []string
@@ -68,6 +70,14 @@ func main() {
 	serviceName := os.Getenv("SERVICE_NAME")
 	if len(serviceName) == 0 {
 		serviceName = defaultServiceName
+	}
+	registerRetryInterval_input := os.Getenv("REGISTER_RETRY_INTERVAL")
+	registerRetryInterval := defaultRegisterRetryInterval
+	if len(registerRetryInterval_input) >= 0 {
+		registerRetryInterval_parsed, err := strconv.Atoi(registerRetryInterval_input)
+		if err == nil {
+			registerRetryInterval = registerRetryInterval_parsed
+		}
 	}
 	Config = configuration{proxeusUrl: proxeusUrl, serviceUrl: serviceUrl, jwtsecret: jwtsecret, authtoken: defaultAuthkey}
 	fmt.Println()
@@ -113,7 +123,7 @@ func main() {
 	parseTemplates()
 
 	//Common External Node registration
-	externalnode.Register(proxeusUrl, serviceName, serviceUrl, jwtsecret, "Converts Crypto to Firat currencies")
+	externalnode.Register(proxeusUrl, serviceName, serviceUrl, jwtsecret, "Converts Crypto to Firat currencies", registerRetryInterval)
 	err := e.Start("0.0.0.0:" + servicePort)
 	if err != nil {
 		log.Printf("[%s][run] err: %s", serviceName, err.Error())

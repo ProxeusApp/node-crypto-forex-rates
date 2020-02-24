@@ -3,8 +3,15 @@ module github.com/ProxeusApp/node-crypto-forex-rates
 go 1.13
 
 require (
-	github.com/ProxeusApp/proxeus-core/externalnode v0.0.0-20200218131402-646bf4b611a1
+	github.com/ProxeusApp/proxeus-core/externalnode v0.0.0-20200224162123-278dfce8819f
 	github.com/labstack/echo v3.3.10+incompatible
+	github.com/mattn/go-colorable v0.1.4 // indirect
+	github.com/mattn/go-isatty v0.0.12 // indirect
 	github.com/valyala/fasttemplate v1.1.0 // indirect
-	golang.org/x/crypto v0.0.0-20200214034016-1d94cc7ab1c6 // indirect
+	golang.org/x/crypto v0.0.0-20200221231518-2aa609cf4a9d // indirect
+	golang.org/x/net v0.0.0-20200222125558-5a598a2470a0 // indirect
+	golang.org/x/sys v0.0.0-20200223170610-d5e6a3e2c0ae // indirect
+	golang.org/x/text v0.3.2 // indirect
 )
+
+//replace github.com/ProxeusApp/proxeus-core/externalnode => ../proxeus-core/externalnode
