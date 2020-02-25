@@ -16,7 +16,7 @@ import (
 
 	"github.com/ProxeusApp/node-crypto-forex-rates/service"
 
-	"github.com/ProxeusApp/proxeus-core/externalnode"
+	externalnode "github.com/ProxeusApp/node-go"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 )
