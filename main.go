@@ -21,10 +21,8 @@ import (
 	"github.com/labstack/echo/middleware"
 )
 
-const serviceID = "node-crypto-forex-rates"
 const defaultServiceName = "Crypto to Fiat Forex Rates"
 const defaultJWTSecret = "my secret"
-const defaultServiceUrl = "127.0.0.1"
 const defaultServicePort = "8011"
 const defaultAuthkey = "auth"
 const defaultProxeusUrl = "http://127.0.0.1:1323"
@@ -44,8 +42,8 @@ var configPage *template.Template
 type configuration struct {
 	proxeusUrl string
 	serviceUrl string
-	jwtsecret  string
-	authtoken  string
+	jwtSecret  string
+	authToken  string
 }
 
 var Config configuration
@@ -71,15 +69,15 @@ func main() {
 	if len(serviceName) == 0 {
 		serviceName = defaultServiceName
 	}
-	registerRetryInterval_input := os.Getenv("REGISTER_RETRY_INTERVAL")
+	registerRetryIntervalInput := os.Getenv("REGISTER_RETRY_INTERVAL")
 	registerRetryInterval := defaultRegisterRetryInterval
-	if len(registerRetryInterval_input) >= 0 {
-		registerRetryInterval_parsed, err := strconv.Atoi(registerRetryInterval_input)
+	if len(registerRetryIntervalInput) >= 0 {
+		registerRetryIntervalParsed, err := strconv.Atoi(registerRetryIntervalInput)
 		if err == nil {
-			registerRetryInterval = registerRetryInterval_parsed
+			registerRetryInterval = registerRetryIntervalParsed
 		}
 	}
-	Config = configuration{proxeusUrl: proxeusUrl, serviceUrl: serviceUrl, jwtsecret: jwtsecret, authtoken: defaultAuthkey}
+	Config = configuration{proxeusUrl: proxeusUrl, serviceUrl: serviceUrl, jwtSecret: jwtsecret, authToken: defaultAuthkey}
 	fmt.Println()
 	fmt.Println("#######################################################")
 	fmt.Println("# STARTING NODE - " + serviceName)
@@ -173,7 +171,7 @@ func config(c echo.Context) error {
 	var buf bytes.Buffer
 	err = configPage.Execute(&buf, map[string]string{
 		"Id":           id,
-		"AuthToken":    c.QueryParam(Config.authtoken),
+		"AuthToken":    c.QueryParam(Config.authToken),
 		"FiatCurrency": conf.FiatCurrency,
 	})
 	if err != nil {
